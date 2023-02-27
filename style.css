@@ -1,0 +1,36 @@
+.container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.navbar {
+    background-color: #55ACE1 !important
+}
+.cardbox {
+    width: 30rem;
+    border: 1px solid lightgrey;
+    background-image: url(img/brainbg.jpg);
+
+  
+
+}
+
+.question-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px !important; 
+}
+.answer-card:hover {
+cursor: pointer;
+background-color: rgba(0,0,0,0.05);
+}
+
+.bg-success, .bg-danger {
+        color: white;
+}
+.red {
+    background-color: rgb(255, 0, 0, 0.2);
+}
+

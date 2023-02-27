@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="database.js"></script>
+  <script src="script.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body onload="showContent()">
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">
+        <img src="img/logo.png" alt="Logo" class="d-inline-block align-text-top">
+        
+      </a>
+    </div>
+  </nav>
+  <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0"
+    aria-valuemax="100">
+    <div class="progress-bar" style="width: 25%">25%</div>
+  </div>
+
+  <div class="container mt-5">
+  <div class="cardbox p-5">
+
+    <div class="card-body">
+      <h5 class="card-title pb-2" id="question">Frage</h5>
+      
+      <div class="card mb-2 answer-card" onclick="answer('answer_1')">
+        <div class="card-body" id="answer_1">
+          Antwort
+        </div>
+      </div>
+
+      <div class="card mb-2 answer-card" onclick="answer('answer_2')">
+        <div class="card-body" id="answer_2">
+          Antwort
+        </div>
+      </div>
+
+      <div class="card mb-2 answer-card" onclick="answer('answer_3')">
+        <div class="card-body" id="answer_3">
+          Antwort
+        </div>
+      </div>
+
+      <div class="card mb-2 answer-card" onclick="answer('answer_4')">
+        <div class="card-body" id="answer_4">
+          Antwort
+        </div>
+      </div>
+
+      <div class="question-footer">
+        <span>1 von <b id="length"></b></b> Fragen </span>
+        <button class="btn btn-primary">nächste Frage</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
