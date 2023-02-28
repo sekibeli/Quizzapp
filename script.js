@@ -1,13 +1,9 @@
 let currentQuestion = 0;
 
-function init() {
-
-
-}
-
 function showContent() {
     if(currentQuestion >= questions.length){
-        // Show End Screen
+               showEndScreen();
+        
     }
     else {
     document.getElementById('length').innerHTML = questions.length;
@@ -60,3 +56,16 @@ function progress(){
     document.getElementById('current').innerHTML = currentQuestion +1;
 }
 
+function showEndScreen(){
+    document.getElementById('cardbox').innerHTML = endScreenHTML();
+    currentQuestion = 0;
+}
+
+function endScreenHTML(){
+    return `<div id="score">
+    <div><img src="img/brainResult.png"></div>
+    <div>Dein Ergebnis: 10/10 Fragen</div>
+    <button class="btn btn-primary mt-3" onclick="showContent()">Neuer Versuch</button>
+    </div>
+    `;
+}
