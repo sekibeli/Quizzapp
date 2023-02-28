@@ -6,8 +6,12 @@ function init() {
 }
 
 function showContent() {
-
+    if(currentQuestion >= questions.length){
+        // Show End Screen
+    }
+    else {
     document.getElementById('length').innerHTML = questions.length;
+    progress();
     let question = questions[currentQuestion];
 
     document.getElementById('question').innerHTML = question.question;
@@ -15,7 +19,7 @@ function showContent() {
     document.getElementById('answer_2').innerHTML = question.answer_2;
     document.getElementById('answer_3').innerHTML = question.answer_3;
     document.getElementById('answer_4').innerHTML = question.answer_4;
-
+    }
 }
 
 
@@ -50,5 +54,9 @@ function resetColor(){
         document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-danger');
         document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-success');
         }
+}
+
+function progress(){
+    document.getElementById('current').innerHTML = currentQuestion +1;
 }
 
