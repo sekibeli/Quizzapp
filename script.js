@@ -30,14 +30,25 @@ function answer(answer) {
         document.getElementById(answer).parentNode.classList.add('bg-success');
     }
     else {
-        document.getElementById(`answer_${lastNumber}`).classList.add('bg-danger');
-        document.getElementById(rightAnswer).classList.add('bg-success');
+        document.getElementById(`answer_${lastNumber}`).parentNode.classList.add('bg-danger');
+        document.getElementById(rightAnswer).parentNode.classList.add('bg-success');
     }
     document.getElementById('next-question').disabled = false;
-    
 }
 
-function nextQuestion(){
+function nextQuestion() {
     currentQuestion++;
+    document.getElementById('next-question').disabled = true;
+    resetColor()
     showContent();
+
+   
 }
+
+function resetColor(){
+    for( let i = 1; i< 5; i++){
+        document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-danger');
+        document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-success');
+        }
+}
+
