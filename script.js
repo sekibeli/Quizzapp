@@ -1,13 +1,13 @@
 let currentQuestion = 0;
 
-function init(){
-   
-    
+function init() {
+
+
 }
 
-function showContent(){
+function showContent() {
 
-    document.getElementById('length').innerHTML = questions.length; 
+    document.getElementById('length').innerHTML = questions.length;
     let question = questions[currentQuestion];
 
     document.getElementById('question').innerHTML = question.question;
@@ -16,25 +16,28 @@ function showContent(){
     document.getElementById('answer_3').innerHTML = question.answer_3;
     document.getElementById('answer_4').innerHTML = question.answer_4;
 
-   }
+}
 
-   
-   function answer(answer){
+
+function answer(answer) {
     let question = questions[currentQuestion];
     let givenAnswer = question[answer];
     let lastNumber = answer.slice(-1);
 
-    let rightAnswer = `answer_${question['right_answer']}` ;
-    
-    if (givenAnswer == question[rightAnswer]){
+    let rightAnswer = `answer_${question['right_answer']}`;
+
+    if (givenAnswer == question[rightAnswer]) {
         document.getElementById(answer).parentNode.classList.add('bg-success');
-     }
-    else{
-        document.getElementById(`answer_${lastNumber}`).parentNode.classList.add('bg-danger');
     }
-   }
+    else {
+        document.getElementById(`answer_${lastNumber}`).classList.add('bg-danger');
+        document.getElementById(rightAnswer).classList.add('bg-success');
+    }
+    document.getElementById('next-question').disabled = false;
+    
+}
 
-
-   function react(){
-
-   }
+function nextQuestion(){
+    currentQuestion++;
+    showContent();
+}
