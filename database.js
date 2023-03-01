@@ -42,3 +42,9 @@ let questions = [
 ];
 
 let index = ['question','answer_1','answer_2','answer_3','answer_4'];
+let currentQuestion = 0;
+let correct = 0;
+let progressBar = 0
+
+let AUDIO_SUCCESS = new Audio('audio/success.mp3');
+let AUDIO_FAIL = new Audio('audio/fail.mp3');

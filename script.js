@@ -1,6 +1,3 @@
-let currentQuestion = 0;
-let correct = 0;
-let progressBar = 0
 
 
 function showContent() {
@@ -35,11 +32,13 @@ function answer(answer) {
 
     if (givenAnswer == question[rightAnswer]) {
         document.getElementById(answer).parentNode.classList.add('bg-success');
+        AUDIO_SUCCESS.play();
         correct++;
     }
     else {
         document.getElementById(`answer_${lastNumber}`).parentNode.classList.add('bg-danger');
         document.getElementById(rightAnswer).parentNode.classList.add('bg-success');
+        AUDIO_FAIL.play();
     }
     document.getElementById('next-question').disabled = false;
     switchIt('none');
