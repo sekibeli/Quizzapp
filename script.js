@@ -1,5 +1,6 @@
 let currentQuestion = 0;
 let correct = 0;
+let progressBar = 0
 
 
 function showContent() {
@@ -7,13 +8,11 @@ function showContent() {
                document.getElementById('score').style = '';
                document.getElementById('cardbox').style = 'display:none';
                document.getElementById('evaluation-first').innerHTML = `Du hast <b>${correct}</b> von <b>${questions.length}</b> Fragen richtig beantwortet.`;
-               currentQuestion = 0;
-               correct = 0;
+              
         
     }
     else {
-        document.getElementById('score').style = "display: none";
-        document.getElementById('cardbox').style = "";
+       
     document.getElementById('length').innerHTML = questions.length;
     progress();
     let question = questions[currentQuestion];
@@ -23,6 +22,7 @@ function showContent() {
     document.getElementById('answer_2').innerHTML = question.answer_2;
     document.getElementById('answer_3').innerHTML = question.answer_3;
     document.getElementById('answer_4').innerHTML = question.answer_4;
+    document.getElementById('next-question').disabled = true;
     }
 }
 
@@ -48,9 +48,10 @@ function answer(answer) {
 }
 
 function nextQuestion() {
+    progressBar = (currentQuestion+1) / questions.length * 100;
+    document.getElementById('progress').style = `width: ${progressBar}%`;
+    document.getElementById('progress').innerHTML = `${progressBar}%`;
     currentQuestion++;
-   
-    document.getElementById('next-question').parentNode.disabled = true;
     resetColor()
     showContent();
 
@@ -68,10 +69,10 @@ function progress(){
     document.getElementById('current').innerHTML = currentQuestion +1;
 }
 
-function showEndScreen(){
-    document.getElementById('cardbox').innerHTML = endScreenHTML();
-    currentQuestion = 0;
-}
+// function showEndScreen(){
+//     document.getElementById('cardbox').innerHTML = endScreenHTML();
+//     currentQuestion = 0;
+// }
 
 
 function switchIt(param){
@@ -79,4 +80,14 @@ function switchIt(param){
         document.getElementById(`answer_${i}`).parentNode.onclick = param;
      
         }
+}
+
+function restartGame(){
+    currentQuestion = 0;
+    correct = 0;
+    document.getElementById('score').style = "display: none";
+    document.getElementById('cardbox').style = "";
+    document.getElementById('progress').style = `width: 0%`;
+    document.getElementById('progress').innerHTML = `0 %`;
+    showContent();
 }
