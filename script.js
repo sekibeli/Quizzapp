@@ -1,36 +1,26 @@
-
-
 function showContent() {
-    if (currentQuestion >= questions.length) {
-        document.getElementById('score').style = '';
-        document.getElementById('cardbox').style = 'display:none';
-        document.getElementById('evaluation-first').innerHTML = `Du hast <b>${correct}</b> von <b>${questions.length}</b> Fragen richtig beantwortet.`;
+    if (gameIsOver()) {
+        showEndScreen();
     }
     else {
-
-        document.getElementById('length').innerHTML = questions.length;
         progress();
-        let question = questions[currentQuestion];
-
-        document.getElementById('question').innerHTML = question.question;
-        document.getElementById('answer_1').innerHTML = question.answer_1;
-        document.getElementById('answer_2').innerHTML = question.answer_2;
-        document.getElementById('answer_3').innerHTML = question.answer_3;
-        document.getElementById('answer_4').innerHTML = question.answer_4;
-        document.getElementById('next-question').disabled = true;
-        switchIt('auto');
+        showNextQuestion();
+        preventCheeting(true, 'auto');
     }
+}
+
+
+function gameIsOver() {
+    return currentQuestion >= questions.length
 }
 
 
 function answer(answer) {
     let question = questions[currentQuestion];
-    let givenAnswer = question[answer];
     let lastNumber = answer.slice(-1);
-
     let rightAnswer = `answer_${question['right_answer']}`;
 
-    if (givenAnswer == question[rightAnswer]) {
+    if (question[answer] == question[rightAnswer]) {
         document.getElementById(answer).parentNode.classList.add('bg-success');
         AUDIO_SUCCESS.play();
         correct++;
@@ -40,8 +30,7 @@ function answer(answer) {
         document.getElementById(rightAnswer).parentNode.classList.add('bg-success');
         AUDIO_FAIL.play();
     }
-    document.getElementById('next-question').disabled = false;
-    switchIt('none');
+    preventCheeting(false, 'none');
 }
 
 
@@ -78,9 +67,33 @@ function switchIt(param) {
 function restartGame() {
     currentQuestion = 0;
     correct = 0;
-    document.getElementById('score').style = "display: none";
-    document.getElementById('cardbox').style = "";
+    document.getElementById('score').style = 'display: none';
+    document.getElementById('cardbox').style = '';
     document.getElementById('progress').style = `width: 0%`;
     document.getElementById('progress').innerHTML = `0 %`;
     showContent();
+}
+
+
+function showEndScreen() {
+    document.getElementById('score').style = '';
+    document.getElementById('cardbox').style = 'display:none';
+    document.getElementById('evaluation-first').innerHTML = `Du hast <b>${correct}</b> von <b>${questions.length}</b> Fragen richtig beantwortet.`;
+}
+
+
+function showNextQuestion() {
+    let question = questions[currentQuestion];
+    document.getElementById('length').innerHTML = questions.length;
+    document.getElementById('question').innerHTML = question.question;
+    document.getElementById('answer_1').innerHTML = question.answer_1;
+    document.getElementById('answer_2').innerHTML = question.answer_2;
+    document.getElementById('answer_3').innerHTML = question.answer_3;
+    document.getElementById('answer_4').innerHTML = question.answer_4;
+}
+
+
+function preventCheeting(trueOrFalse, autoOrNone) {
+    document.getElementById('next-question').disabled = trueOrFalse;
+    switchIt(autoOrNone);
 }

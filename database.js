@@ -25,8 +25,8 @@ let questions = [
     },
     {
         "question": "Ein Obsthändler hat einen BMI von 25. Was wiegt er?",
-        "answer_1": "80",
-        "answer_2": "100",
+        "answer_1": "80kg",
+        "answer_2": "100kg",
         "answer_3": "Obst",
         "answer_4": "Er hat keine Waage",
         "right_answer": 3
