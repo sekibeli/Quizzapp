@@ -17,6 +17,11 @@
 
 }
 
+.card {
+    pointer-events: none;
+} 
+
+
 .question-footer {
     display: flex;
     justify-content: space-between;
