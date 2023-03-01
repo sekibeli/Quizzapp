@@ -1,10 +1,14 @@
 let currentQuestion = 0;
+let correct = 0;
+
 
 function showContent() {
     if(currentQuestion >= questions.length){
                document.getElementById('score').style = '';
                document.getElementById('cardbox').style = 'display:none';
+               document.getElementById('evaluation-first').innerHTML = `Du hast <b>${correct}</b> von <b>${questions.length}</b> Fragen richtig beantwortet.`;
                currentQuestion = 0;
+               correct = 0;
         
     }
     else {
@@ -32,10 +36,12 @@ function answer(answer) {
 
     if (givenAnswer == question[rightAnswer]) {
         document.getElementById(answer).parentNode.classList.add('bg-success');
+        correct++;
     }
     else {
         document.getElementById(`answer_${lastNumber}`).parentNode.classList.add('bg-danger');
         document.getElementById(rightAnswer).parentNode.classList.add('bg-success');
+      
     }
     document.getElementById('next-question').disabled = false;
  
