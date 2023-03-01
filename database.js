@@ -8,7 +8,7 @@ let questions = [
         "right_answer": 3
     },
     {
-        "question": "Einige Monate haben 31 TAge, andere 30. Wie viele Monate haben 28 TAge??",
+        "question": "Einige Monate haben 31 Tage, andere 30. Wie viele Monate haben 28 Tage??",
         "answer_1": "Ein Monat",
         "answer_2": "Alle Monate",
         "answer_3": "Keiner",

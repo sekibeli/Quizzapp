@@ -2,10 +2,14 @@ let currentQuestion = 0;
 
 function showContent() {
     if(currentQuestion >= questions.length){
-               showEndScreen();
+               document.getElementById('score').style = '';
+               document.getElementById('cardbox').style = 'display:none';
+               currentQuestion = 0;
         
     }
     else {
+        document.getElementById('score').style = "display: none";
+        document.getElementById('cardbox').style = "";
     document.getElementById('length').innerHTML = questions.length;
     progress();
     let question = questions[currentQuestion];
@@ -34,11 +38,13 @@ function answer(answer) {
         document.getElementById(rightAnswer).parentNode.classList.add('bg-success');
     }
     document.getElementById('next-question').disabled = false;
+ 
 }
 
 function nextQuestion() {
     currentQuestion++;
-    document.getElementById('next-question').disabled = true;
+   
+    document.getElementById('next-question').parentNode.disabled = true;
     resetColor()
     showContent();
 
@@ -61,11 +67,10 @@ function showEndScreen(){
     currentQuestion = 0;
 }
 
-function endScreenHTML(){
-    return `<div id="score">
-    <div><img src="img/brainResult.png"></div>
-    <div>Dein Ergebnis: 10/10 Fragen</div>
-    <button class="btn btn-primary mt-3" onclick="showContent()">Neuer Versuch</button>
-    </div>
-    `;
+
+function switchIt(param){
+    for( let i = 1; i< 5; i++){
+        document.getElementById(`answer_${i}`).parentNode.onclick = param;
+     
+        }
 }
