@@ -8,7 +8,7 @@ let questions = [
         "right_answer": 3
     },
     {
-        "question": "Einige Monate haben 31 Tage, andere 30. Wie viele Monate haben 28 Tage??",
+        "question": "Einige Monate haben 31 Tage, andere 30. Wie viele Monate haben 28 Tage?",
         "answer_1": "Ein Monat",
         "answer_2": "Alle Monate",
         "answer_3": "Keiner",
@@ -32,7 +32,7 @@ let questions = [
         "right_answer": 3
     },
     {
-        "question": "Du hast eine Schachtel mit Streichhölzern und kommst in einen kalten Raum. Dort findest du eine Petroleumlampe, etwas Holz und einen Kamin. Was zündest du zuerst an?",
+        "question": "Du kommst in einen kalten Raum. Dort findest du eine Petroleumlampe, etwas Holz und einen Kamin. Was zündest du zuerst an?",
         "answer_1": "Die Petroliumlampe",
         "answer_2": "Das Holz",
         "answer_3": "Den Kamin",

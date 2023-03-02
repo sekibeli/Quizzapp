@@ -19,7 +19,6 @@ function answer(answer) {
     let question = questions[currentQuestion];
     let lastNumber = answer.slice(-1);
     let rightAnswer = `answer_${question['right_answer']}`;
-
     if (question[answer] == question[rightAnswer]) {
         document.getElementById(answer).parentNode.classList.add('bg-success');
         AUDIO_SUCCESS.play();
@@ -35,12 +34,17 @@ function answer(answer) {
 
 
 function nextQuestion() {
-    progressBar = (currentQuestion + 1) / questions.length * 100;
-    document.getElementById('progress').style = `width: ${progressBar}%`;
-    document.getElementById('progress').innerHTML = `${progressBar}%`;
+    progressInProgressBar();
     currentQuestion++;
     resetColor()
     showContent();
+}
+
+
+function progressInProgressBar() {
+    progressBar = (currentQuestion + 1) / questions.length * 100;
+    document.getElementById('progress').style = `width: ${progressBar}%`;
+    document.getElementById('progress').innerHTML = `${progressBar}%`;
 }
 
 
